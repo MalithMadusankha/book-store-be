@@ -12,7 +12,7 @@ Develop a comprehensive online bookstore application featuring a user-friendly f
 
 ### install: ```yarn install```
 
-### run app : ```yarn dev`` or ```yarn start```
+### run app : ```yarn dev``` or ```yarn start```
 
 ### I am  using node version: v16.17.1
 
