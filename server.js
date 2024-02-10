@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 const http = require("http");
-const fs = require("fs");
+const rateLimit = require("express-rate-limit");
+
 const app = express();
 require("dotenv").config();
 
@@ -50,6 +51,14 @@ const server = http.createServer(app);
 server.listen(PORT, () => {
   console.log(`<=== Server is up and running on port ${PORT} ====>`);
 });
+
+// rate limiter middleware
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+});
+
+app.use(limiter);
 
 // Book Routes
 const BookRoute = require("./routes/bookRoute");

@@ -8,6 +8,6 @@ module.exports = (err, req, res, next) => {
   res.status(err.statusCode).json({
     status: err.statusCode,
     message: err.message,
-    error: err,
+    error: err, // only send the development env
   });
 };
